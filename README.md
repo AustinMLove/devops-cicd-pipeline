@@ -43,8 +43,8 @@ home lab — demonstrating end-to-end software delivery automation.
 | Week | Focus | Status |
 |------|-------|--------|
 | 1 | Linux & Bash Fundamentals | ✅ Complete |
-| 2 | Git Deep Dive | 🔄 In progress |
-| 3 | Docker Fundamentals | ⬜ Pending |
+| 2 | Git Deep Dive | ✅ Complete |
+| 3 | Docker Fundamentals | 🔄 In progress |
 | 4 | GitHub Actions & CI Foundation | ⬜ Pending |
 | 5 | Home Lab Setup & Deployment Target | ⬜ Pending |
 | 6 | Automated Deployment Pipeline | ⬜ Pending |
@@ -64,6 +64,24 @@ project structure from the command line, incorporating:
 - Heredoc-generated file templates
 - Numeric chmod for explicit permission control
 - Timestamped logging
+
+## Week 2 Artifact — GitHub Feature Branch Workflow
+
+Week 2 produced the Git and GitHub workflow used across both portfolio
+repositories for the remainder of the project, applied against real
+feature development on the [Coursedog Importer](https://github.com/AustinMLove/coursedog-importer).
+
+The first feature branch `feature/api-authentication` delivered OAuth2
+authentication against the Coursedog staging API, completed through the
+full PR workflow:
+
+* Trunk-based development with branch protection enforced on `main`
+* Feature branch naming conventions (`feature/`, `fix/`, `docs/`, `chore/`)
+* Staged commits with descriptive messages
+* Pull request descriptions documenting decisions, findings, and next steps
+* Full branch lifecycle: create → commit → push → PR → review → merge → delete
+* `.gitignore` discipline — credentials never committed
+* `git log --oneline --graph` used to verify clean branch history after each merge
 
 ## Home Lab
 
