@@ -38,7 +38,7 @@ home lab — demonstrating end-to-end software delivery automation.
 
 ## Project Schedule
 
-8-week self-study and build. Currently in Week 2.
+8-week self-study and build. Currently in Week 3.
 
 | Week | Focus | Status |
 |------|-------|--------|
