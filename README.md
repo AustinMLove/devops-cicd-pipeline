@@ -38,14 +38,14 @@ home lab — demonstrating end-to-end software delivery automation.
 
 ## Project Schedule
 
-8-week self-study and build. Currently in Week 3.
+8-week self-study and build. Currently in Week 4.
 
 | Week | Focus | Status |
 |------|-------|--------|
 | 1 | Linux & Bash Fundamentals | ✅ Complete |
 | 2 | Git Deep Dive | ✅ Complete |
-| 3 | Docker Fundamentals | 🔄 In progress |
-| 4 | GitHub Actions & CI Foundation | ⬜ Pending |
+| 3 | Docker Fundamentals | ✅ Complete |
+| 4 | GitHub Actions & CI Foundation | 🔄 In progress |
 | 5 | Home Lab Setup & Deployment Target | ⬜ Pending |
 | 6 | Automated Deployment Pipeline | ⬜ Pending |
 | 7 | Rollback Mechanisms | ⬜ Pending |
@@ -82,6 +82,30 @@ full PR workflow:
 * Full branch lifecycle: create → commit → push → PR → review → merge → delete
 * `.gitignore` discipline — credentials never committed
 * `git log --oneline --graph` used to verify clean branch history after each merge
+
+## Week 3 Artifact — Multi-Stage Dockerfile
+
+Week 3 produced the Docker containerization of the Coursedog Importer,
+demonstrating production-grade container practices applied to a real
+C# application making live API calls.
+
+* Multi-stage build: .NET SDK image for compilation, runtime image
+  for execution — build tools discarded from the final image
+* Project file copied before source code to exploit Docker layer
+  caching — NuGet restore only reruns when dependencies change
+* Release configuration publish via `dotnet publish`
+* Environment variables injected at runtime via `--env-file` or
+  `-e` flags — no secrets baked into the image
+* `docker-compose.yml` established for local development, eliminating
+  the need to pass all `-e` flags manually at runtime
+* Image tagged and pushed to Docker Hub
+
+The `LoadEnvFile` helper in `Program.cs` is a no-op inside the
+container — Docker injects environment variables before the app
+starts, so they are already set when the app reads them.
+
+See the [Coursedog Importer](https://github.com/AustinMLove/coursedog-importer)
+repo for the Dockerfile and docker-compose.yml.
 
 ## Home Lab
 
