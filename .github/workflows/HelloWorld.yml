@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       LOCAL_ENV_VAR: hello there
-      SECRET_VAL: ${{TEST_SECRET}}
+      SECRET_VAL: ${{secrets.TEST_SECRET}}
     steps:
       - name: say hello
         run: echo "Hello From Git Actions."
