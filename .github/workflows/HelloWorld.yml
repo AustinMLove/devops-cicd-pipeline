@@ -12,6 +12,9 @@ on:
 jobs:
   hello:
     runs-on: ubuntu-latest
+    env:
+      LOCAL_ENV_VAR: hello there
+      SECRET_VAL: ${{TEST_SECRET}}
     steps:
       - name: say hello
         run: echo "Hello From Git Actions."
@@ -21,3 +24,13 @@ jobs:
 
       - name: show working directory
         run: pwd && ls -la
+
+      - name: checkout code 
+        uses: actions/checkout@v4
+      
+      - name: list project files
+        run: ls -la
+
+      - name: use env variables
+        run: echo "$LOCAL_ENV_VAR"
+        run: echo "$SECRET_VAL"
