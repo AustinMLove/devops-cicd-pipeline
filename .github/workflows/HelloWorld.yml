@@ -32,5 +32,4 @@ jobs:
         run: ls -la
 
       - name: use env variables
-        run: echo "$LOCAL_ENV_VAR"
-        run: echo "$SECRET_VAL"
+        run: echo "$LOCAL_ENV_VAR $SECRET_VAL"
